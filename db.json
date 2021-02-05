@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": 0,
+      "name": "Go to the gym",
+      "Type": "PERSO",
+      "date": "12-05-2020"
+    },
+    {
+      "id": 1,
+      "name": "Walk the dog",
+      "Type": "PERSO",
+      "date": "12-05-2020"
+    },
+    {
+      "id": 2,
+      "name": "Get some pizza",
+      "Type": "PERSO",
+      "date": "12-05-2020"
+    },
+    {
+      "name": "r\"'r",
+      "type": "r\"'r\"'",
+      "date": "r\"'r\"'",
+      "id": 3
+    }
+  ]
+}
