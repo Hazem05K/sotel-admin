@@ -17,6 +17,9 @@ const actions = {
     commit('setEvents', response.data)
   },
   async addEvent ({ commit }, form) {
+    console.log('================update====================')
+          console.log(form)
+          console.log('====================================')
     const response = await axios.post(
       'https://localhost:5001/api/event',
       form,
@@ -42,12 +45,13 @@ const actions = {
     commit('setEvents', response.data)
   },
   async updateEvent ({ commit }, id, updEvent) {
+     console.log('================update====================')
+          console.log(updEvent)
+          console.log('====================================')
     const response = await axios.put(
       `https://localhost:5001/api/Event/${id}`,
       updEvent,
     )
-
-    console.log(response.data)
 
     commit('updateEvent', response.data)
   },
@@ -55,11 +59,11 @@ const actions = {
 
 const mutations = {
   setEvents: (state, events) => (state.events = events),
-  newEvent: (state, todo) => state.events.unshift(todo),
+  newEvent: (state, event) => state.events.unshift(event),
   removeEvent: (state, id) =>
-    (state.events = state.events.filter(todo => todo.id !== id)),
+    (state.events = state.events.filter(event => event.id !== id)),
   updateEvent: (state, updEvent) => {
-    const index = state.events.findIndex(todo => todo.id === updEvent.id)
+    const index = state.events.findIndex(event => event.id === updEvent.id)
     if (index !== -1) {
       state.events.splice(index, 1, updEvent)
     }
