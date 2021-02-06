@@ -11,13 +11,12 @@ export default new Router({
       path: '/',
       component: () => import('@/views/dashboard/Index'),
       children: [
-        // Dashboard
-        {
-          name: 'Tableau de bord',
-          path: '',
-          component: () => import('@/views/dashboard/Dashboard'),
-          },
         // users list
+        {
+          name: 'Utilisateurs',
+          path: '',
+          component: () => import('@/views/dashboard/component/Users'),
+        },
         {
           name: 'Utilisateurs',
           path: 'users',

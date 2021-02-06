@@ -17,7 +17,7 @@
           <v-icon
             small
             class="mr-2"
-            @click="editItem(item)"
+            @click="fillUser(item)"
           >
             mdi-pencil
           </v-icon>
@@ -174,6 +174,7 @@
       ],
       items: [],
       step: 1,
+      id: 'no',
       username: '',
       FullName: '',
       name: '',
@@ -184,20 +185,7 @@
       login: '',
       snackSign: false,
       timeout: 0,
-      certif: [
-        {
-          id: 1,
-          title: 'PERSO',
-        },
-        {
-          id: 2,
-          title: 'PRO',
-        },
-        {
-          id: 3,
-          title: 'SEAL',
-        },
-      ],
+
     }),
     computed: mapGetters(['allUsers']),
 
@@ -214,7 +202,7 @@
         user.append('tel', this.tel)
         user.append('room', this.room)
         user.append('password', this.password)
-        if (this.id > 0) {
+        if (this.id.length > 3) {
           this.updateUser(this.id, user)
         } else {
           this.addUser(user)
@@ -224,15 +212,18 @@
         this.title = ''
         this.banner = ''
         this.description = ''
-        this.id = 0
+        this.id = 'no'
       },
       fillUser (user) {
         this.dialog = true
 
         this.id = user.id
-        this.title = user.title
-        this.banner = user.banner
-        this.description = user.descreption
+        this.FullName = user.fullName
+        this.username = user.userName
+        this.email = user.email
+        this.tel = user.tel
+        this.room = user.room
+        this.password = user.password
       },
       onDblClick (user) {
         const updUser = {

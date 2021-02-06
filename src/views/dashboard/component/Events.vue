@@ -39,7 +39,7 @@
             <v-btn
               color="success"
               class="align-left mr-0"
-              @click="dialog = true"
+              @click="showAdd"
             >
               Ajouter une evenment
             </v-btn>
@@ -177,6 +177,8 @@
         event.append('descreption', this.description)
         event.append('time', eventTime)
         if (this.id > 0) {
+          console.log(event)
+          event.append('id', this.id)
           this.updateEvent(this.id, event)
         } else {
           this.addEvent(event)
@@ -207,6 +209,10 @@
         }
 
         this.updateEvent(updEvent)
+      },
+      showAdd () {
+        this.id = 0
+        this.dialog = true
       },
       deleteItem (event) {
         this.deleteEvent(event.id)
